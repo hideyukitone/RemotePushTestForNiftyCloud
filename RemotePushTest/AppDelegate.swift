@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        NCMB.setApplicationKey("062063118d1dc48f8608297b201bddfb5b2c9c6aa7ba850f7c0152fc384b6a1b", clientKey: "aee16f1ad83033f20f7eb6da517d3dc080f3f0ea9b4c30d03e80c4ae25fb55dc")
+        NCMB.setApplicationKey("アプリケーションキー", clientKey: "クライアントキー")
         UIApplication.sharedApplication().registerForRemoteNotifications()
         
         return true
