@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  RemotePushTest
 //
-//  Created by 大國 嗣元 on 2016/05/06.
+//  Created by hideyukitone on 2016/05/06.
 //  Copyright © 2016年 hideyuki. All rights reserved.
 //
 
@@ -10,9 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var lblDisplay: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        lblDisplay.text = "待機中"
     }
 
     override func didReceiveMemoryWarning() {

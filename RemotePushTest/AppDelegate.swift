@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  RemotePushTest
 //
-//  Created by 大國 嗣元 on 2016/05/06.
+//  Created by hideyukitone on 2016/05/06.
 //  Copyright © 2016年 hideyuki. All rights reserved.
 //
 
@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        NCMB.setApplicationKey("062063118d1dc48f8608297b201bddfb5b2c9c6aa7ba850f7c0152fc384b6a1b", clientKey: "aee16f1ad83033f20f7eb6da517d3dc080f3f0ea9b4c30d03e80c4ae25fb55dc")
+        UIApplication.sharedApplication().registerForRemoteNotifications()
+        
         return true
     }
 
@@ -41,6 +45,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    //****************************************************
+    // MARK: - Remote Push
+    //****************************************************
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let installation = NCMBInstallation.currentInstallation()
+        installation.setDeviceTokenFromData(deviceToken)
+        installation.saveInBackgroundWithBlock { (error) in
+            if error == nil {
+                print("デバイストークン登録成功")
+            }else {
+                print("デバイストークン登録失敗")
+            }
+        }
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        //コンテンツ更新などの何かしらの処理
+        if let controller = window?.rootViewController as? ViewController {
+            controller.lblDisplay.text = "Silent Push成功"
+        }
+    }
+    
 }
 

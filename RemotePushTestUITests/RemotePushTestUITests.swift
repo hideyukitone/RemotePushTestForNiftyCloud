@@ -2,7 +2,7 @@
 //  RemotePushTestUITests.swift
 //  RemotePushTestUITests
 //
-//  Created by 大國 嗣元 on 2016/05/06.
+//  Created by hideyukitone on 2016/05/06.
 //  Copyright © 2016年 hideyuki. All rights reserved.
 //
 
